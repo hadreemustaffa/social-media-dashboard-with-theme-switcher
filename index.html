@@ -21,15 +21,16 @@
     </div>
 
     <div class="header__button">
-      <p>Dark Mode</p>
+      <p id="modeSelector">Dark Mode</p>
 
-      <label for="toggle" class="header__button-toggle">
-        <input type="checkbox" name="toggle" id="toggleBtn">
+      <div class="header__button-toggle">
+        <input type="checkbox" name="toggle" id="toggleBtn" aria-labelledby="modeSelector">
         <span class="slider slider--round"></span>
-      </label>
-
+      </div>
     </div>
   </header>
+
+  <div class="background-pattern"></div>
 
   <main>
     <div class="followers">
@@ -208,11 +209,6 @@
       </div>
     </div>
   </main>
-
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
 
   <script src="index.js"></script>
 </body>
