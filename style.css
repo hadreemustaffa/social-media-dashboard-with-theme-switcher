@@ -63,14 +63,21 @@ h6 {
   --clr-theme-bg: hsl(0, 0%, 100%);
   --clr-theme-pattern-bg: hsl(225, 100%, 98%);
   --clr-theme-card-bg: hsl(227, 47%, 96%);
+  --clr-theme-card-hvr: hsl(227, 47%, 92%);
   --clr-theme-text-heading: hsl(230, 17%, 14%);
   --clr-theme-text-body: hsl(228, 12%, 44%);
   --clr-theme-toggle: hsl(230, 22%, 74%);
+  --clr-theme-toggle-hvr: linear-gradient(
+    to right,
+    hsl(210, 78%, 56%),
+    hsl(146, 68%, 55%)
+  );
 }
 :root[color-mode='dark'] {
   --clr-theme-bg: hsl(230, 17%, 14%);
   --clr-theme-pattern-bg: hsl(232, 19%, 15%);
   --clr-theme-card-bg: hsl(228, 28%, 20%);
+  --clr-theme-card-hvr: hsl(228, 28%, 26%);
   --clr-theme-text-heading: hsl(0, 0%, 100%);
   --clr-theme-text-body: hsl(228, 34%, 66%);
   --clr-theme-toggle: linear-gradient(
@@ -129,19 +136,20 @@ h1 {
 
 /* layout */
 body {
-  margin: 2rem;
+  margin: 0 2rem;
   background-color: var(--clr-theme-bg);
   transition: background-color 0.4s ease;
 }
 header {
   display: flex;
   flex-direction: column;
+  margin-top: 2rem;
   gap: 1rem;
   width: 100%;
-  max-width: 1110px;
 }
+header,
 main {
-  max-width: 1110px;
+  max-width: 840px;
 }
 .header__button {
   display: flex;
@@ -318,6 +326,16 @@ input:focus + .slider {
 }
 
 @media (min-width: 36rem) {
+  header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .header__button {
+    border-top: none;
+    gap: 1rem;
+  }
+
   .followers,
   .overview__cards {
     display: flex;
@@ -332,33 +350,34 @@ input:focus + .slider {
 }
 
 @media (min-width: 48rem) {
-  header {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .header__button {
-    border-top: none;
-    gap: 1rem;
+  .slider:hover {
+    box-shadow: 0 0 12px -6px var(--clr-theme-text-heading);
   }
 
   body {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
   }
-  header,
-  main {
-    margin: 0 auto;
+
+  .card:hover {
+    cursor: pointer;
+    background-color: var(--clr-theme-card-hvr);
   }
 }
-
-@media (min-width: 78rem) {
+@media (min-width: 62rem) {
   body {
     margin: 0;
   }
   .followers,
   .overview__cards {
     justify-content: space-between;
+  }
+}
+@media (min-width: 78rem) {
+  header,
+  main {
+    max-width: 1110px;
   }
 }
